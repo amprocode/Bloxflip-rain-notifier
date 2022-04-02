@@ -1,0 +1,5 @@
+requests
+bs4
+selenium
+win10toast
+discord_webhook
