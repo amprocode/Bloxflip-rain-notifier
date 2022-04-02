@@ -1,26 +1,28 @@
 import json, os, time, requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from win10toast import ToastNotifier
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
 with open("config.json", "r") as config:
-    config = json.load(config)
+  config = json.load(config)
     
 webhook_enable = config['webhook_enabled']
 webhookurl = config['webhook']
+winnotif = config['windows_notification']
 
 if webhook_enable == "True":
   webhook = DiscordWebhook(url=webhookurl, content='@everyone')
 
+os.system(f'title Bloxflip Rain Notifier ^')
+toast = ToastNotifier()
 options = Options()
-options.headless = True
+options.add_argument("window-size=200,500")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
 driver = webdriver.Chrome(service=Service('chromedriver.exe'), options=options)
 driver.implicitly_wait(10)
-
-os.system('title Bloxflip Rain Notifier')
 
 while True:
     try:
@@ -46,6 +48,8 @@ while True:
               webhook.add_embed(embed)
               webhook.execute()
               webhook.remove_embed(0)
+          if winnotif == "True":
+            toast.show_toast("Bloxflip Rain!", f"Rain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\n\n", icon_path="logo.ico", duration=10)
           time.sleep(130)
       elif check['active'] == False:
         time.sleep(30)
