@@ -18,7 +18,8 @@ going here: **chrome://settings/help** and it should upon up shwoing your curren
 
 4) Get your current chrome version of chromedriver by clicking [here](https://chromedriver.chromium.org/downloads) and download the chromedriver version that corresponds with your current chrome version and download the **"chromedriver_win32.zip"** file
 5) Next extract the chromedriver folder and you should be left with a chromedriver.exe file. Copy and paste this file into the folder where you extraced the other files earlier in step 2
-6) Now run the **"installer.bat"** file and it should start running, any problems open up a new issue on this github respitory!
+6) Now run the **"installer.bat"** file and it should start running, now you can minimise the chrome browser and the program and do some work while waiting for a notification. 
+Any problems open up a new issue on this github respitory!
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -52,4 +53,4 @@ Example of webhook:
 Yes it does ping @everyone however you can change this in line 17
 
 ## Current Issues:
-- Headless mode currently does not work with this program :(
+- Chromedriver headless mode currently does not work with this program :(
