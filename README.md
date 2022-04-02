@@ -4,7 +4,11 @@
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+## Installation:
+- First download the latest version of the program, either the exe or the python version.
+- Extract the files
+- Find your current chrome version by clicking [here](chrome://settings/help) and it should upon up shwoing your current chrome version
+- Get the latest version of chromedriver by clicking [here](https://chromedriver.chromium.org/downloads) and download the "chromedriver_win32.zip" file
 ## Config guide:
 
 Latest config.json file:
