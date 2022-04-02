@@ -2,6 +2,8 @@
 
 ## Information:
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
+- Virustotal for exe: https://www.virustotal.com/gui/file/5c9708bb6130c3b2d190fb96e9a9bcce95bf900882fc0d675b6cdec9d414fe18
+- If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
