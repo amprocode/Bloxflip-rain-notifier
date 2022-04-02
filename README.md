@@ -53,4 +53,5 @@ Example of webhook:
 Yes it does ping @everyone however you can change this in line 17
 
 ## Current Issues:
-- Chromedriver headless mode currently does not work with this program :(
+- Chromedriver headless mode currently does not work with this program
+- Currently cannot use requests due to cloudflare being a pain
