@@ -4,11 +4,22 @@
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Installation:
-- First download the latest version of the program, either the exe or the python version.
-- Extract the files
-- Find your current chrome version by clicking [here](chrome://settings/help) and it should upon up shwoing your current chrome version
-- Get the latest version of chromedriver by clicking [here](https://chromedriver.chromium.org/downloads) and download the "chromedriver_win32.zip" file
+1) First download the latest version of the program, either the exe or the python version.
+2) Extract the files to a foler of your choice
+3) Find your current chrome version by 
+going here: **chrome://settings/help** and it should upon up shwoing your current chrome version like this:
+
+![image](https://user-images.githubusercontent.com/79641603/161394661-f7d055ab-e5b7-4f83-b096-6956f39a3728.png)
+
+
+4) Get your current chrome version of chromedriver by clicking [here](https://chromedriver.chromium.org/downloads) and download the chromedriver version that corresponds with your current chrome version and download the **"chromedriver_win32.zip"** file
+5) Next extract the chromedriver folder and you should be left with a chromedriver.exe file. Copy and paste this file into the folder where you extraced the other files earlier in step 2
+6) Now run the **"installer.bat"** file and it should start running, any problems open up a new issue on this github respitory!
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Config guide:
 
 Latest config.json file:
