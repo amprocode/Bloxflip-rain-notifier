@@ -1,14 +1,16 @@
 import json, os, time, requests
-from bs4 import BeautifulSoup
 from selenium import webdriver
 from win10toast import ToastNotifier
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
+os.system(f'title Bloxflip Rain Notifier ^')
+
 with open("config.json", "r") as config:
   config = json.load(config)
-    
+
+headless = config['headless']    
 webhook_enable = config['webhook_enabled']
 webhookurl = config['webhook']
 winnotif = config['windows_notification']
@@ -16,9 +18,10 @@ winnotif = config['windows_notification']
 if webhook_enable == "True":
   webhook = DiscordWebhook(url=webhookurl, content='@everyone')
 
-os.system(f'title Bloxflip Rain Notifier ^')
 toast = ToastNotifier()
 options = Options()
+if headless == "True":
+  options.headless = True
 options.add_argument("window-size=200,500")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
 driver = webdriver.Chrome(service=Service('chromedriver.exe'), options=options)
@@ -27,8 +30,8 @@ driver.implicitly_wait(10)
 while True:
     try:
       driver.get('https://rest-bf.blox.land/chat/history')
-      soup = BeautifulSoup(driver.page_source, 'lxml')
-      check = json.loads(soup.find("body").text)['rain']
+      data = driver.page_source.replace('<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">', "").replace("</pre></body></html>", "")
+      check = json.loads(data)['rain']
       if check['active'] == True:
           prize = str(check['prize'])[:-2]
           host = check['host']

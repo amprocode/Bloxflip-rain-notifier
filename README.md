@@ -1,8 +1,14 @@
 # Bloxflip-rain-notifier
 
+## Update v1.1:
+- Added headless option
+- Updated for exe as well :D
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Information:
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
-- Virustotal for exe: https://www.virustotal.com/gui/file/5c9708bb6130c3b2d190fb96e9a9bcce95bf900882fc0d675b6cdec9d414fe18
+- Virustotal for exe: https://www.virustotal.com/gui/file/7fa791c8fec6fc7c954318d761f2c2af7c1f59d5206c5022504f869c6fc57ca3
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -34,6 +40,9 @@ Latest config.json file:
 }
 ```
 
+### headless:
+If set to "True" the chrome browser that the program opens will be hidden so you wont have to see it or accidentally open it. Recommended to keep it on!
+
 ### windows_notification:
 If set to "True" then a popup on the bottom right on your screen will display showing you information about the current rain
 
@@ -54,5 +63,5 @@ Example of webhook:
 Yes it does ping @everyone however you can change this in line 17
 
 ## Current Issues:
-- Chromedriver headless mode currently does not work with this program
-- Currently cannot use requests due to cloudflare being a pain
+- ~~Chromedriver headless mode currently does not work with this program~~
+- Currently cannot use requests due to bloxflip blocking requests
