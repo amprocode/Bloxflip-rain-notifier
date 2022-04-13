@@ -41,7 +41,8 @@ Latest config.json file:
 ```
 
 ### headless:
-If set to "True" the chrome browser that the program opens will be hidden so you wont have to see it or accidentally open it. Recommended to keep it on!
+If set to "True" the chrome browser that the program opens will be hidden so you wont have to see it or accidentally open it.
+#### However: if the program shows an error it is recommended to set this value to False!
 
 ### windows_notification:
 If set to "True" then a popup on the bottom right on your screen will display showing you information about the current rain
