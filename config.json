@@ -1,5 +1,6 @@
 {
-  "headless": "True",
+  "minimum_amount": 500,
+  "headless": "False", 
   "windows_notification": "True",
   "webhook_enabled": "False",
   "webhook": "https://discord.com/api/webhooks/xxxxxxxx/xxxxxxxxxxxxxx"

@@ -1,6 +1,7 @@
 import json, os, time, requests
 from selenium import webdriver
 from win10toast import ToastNotifier
+from zipfile import *
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from discord_webhook import DiscordWebhook, DiscordEmbed
@@ -14,9 +15,21 @@ headless = config['headless']
 webhook_enable = config['webhook_enabled']
 webhookurl = config['webhook']
 winnotif = config['windows_notification']
+minimum = config['minimum_amount']
 
 if webhook_enable == "True":
   webhook = DiscordWebhook(url=webhookurl, content='@everyone')
+
+if not os.path.exists("chromedriver.exe"):
+  version = requests.get("https://chromedriver.storage.googleapis.com/LATEST_RELEASE").text
+  download = requests.get(f"https://chromedriver.storage.googleapis.com/{version}/chromedriver_win32.zip")
+  with open("chromedriver.zip", "wb") as zip:
+    zip.write(download.content)
+
+  with ZipFile("chromedriver.zip", "r") as zip:
+    zip.extract("chromedriver.exe")
+    zip.close()
+    os.remove("chromedriver.zip")
 
 toast = ToastNotifier()
 options = Options()
@@ -30,16 +43,20 @@ driver.implicitly_wait(10)
 while True:
     try:
       driver.get('https://rest-bf.blox.land/chat/history')
+      if headless == "False":
+        driver.minimize_window()
       data = driver.page_source.replace('<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">', "").replace("</pre></body></html>", "")
       check = json.loads(data)['rain']
       if check['active'] == True:
-          prize = str(check['prize'])[:-2]
-          host = check['host']
-          getduration = check['duration']
-          convert = (getduration/(1000*60))%60
-          duration = (int(convert))
-          print(f"Bloxflip Rain!\nRain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\n\n")
-          if webhook_enable == "True":
+          if check['prize'] >= minimum:
+            prize = str(check['prize'])[:-2]
+            host = check['host']
+            getduration = check['duration']
+            convert = (getduration/(1000*60))%60
+            duration = (int(convert))
+            sent = time.strftime("%d/%m/%Y %H:%M:%S", time.localtime(int(time.time())))
+            print(f"Bloxflip Rain!\nRain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\nTimestamp: {sent}\n\n")
+            if webhook_enable == "True":
               userid = requests.get(f"https://api.roblox.com/users/get-by-username?username={host}").json()['Id']
               thumburl = (f"https://www.roblox.com/headshot-thumbnail/image?userId={userid}&height=50&width=50&format=png")
               embed = DiscordEmbed(title=f"{host} is hosting a chat rain!", url="https://bloxflip.com", color=0xFFC800)
@@ -51,6 +68,8 @@ while True:
               webhook.add_embed(embed)
               webhook.execute()
               webhook.remove_embed(0)
+          else:
+            time.sleep(130)
           if winnotif == "True":
             toast.show_toast("Bloxflip Rain!", f"Rain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\n\n", icon_path="logo.ico", duration=10)
           time.sleep(130)

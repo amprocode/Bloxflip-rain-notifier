@@ -1,14 +1,15 @@
 # Bloxflip-rain-notifier
 
-## Update v1.1:
-- Added headless option
+## Update v1.2:
+- chromedriver.exe auto download
+- Minimum rain amount
 - Updated for exe as well :D
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Information:
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
-- Virustotal for exe: https://www.virustotal.com/gui/file/7fa791c8fec6fc7c954318d761f2c2af7c1f59d5206c5022504f869c6fc57ca3
+- Virustotal for exe: https://www.virustotal.com/gui/file/bf231f423778368ef8ce506cdbd73292f14959a77362739b2b58017452e221a5
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -16,15 +17,7 @@
 ## Installation:
 1) First download the latest version of the program, either the exe or the python version.
 2) Extract the files to a foler of your choice
-3) Find your current chrome version by 
-going here: **chrome://settings/help** and it should upon up shwoing your current chrome version like this:
-
-![image](https://user-images.githubusercontent.com/79641603/161394661-f7d055ab-e5b7-4f83-b096-6956f39a3728.png)
-
-
-4) Get your current chrome version of chromedriver by clicking [here](https://chromedriver.chromium.org/downloads) and download the chromedriver version that corresponds with your current chrome version and download the **"chromedriver_win32.zip"** file
-5) Next extract the chromedriver folder and you should be left with a chromedriver.exe file. Copy and paste this file into the folder where you extraced the other files earlier in step 2
-6) Now run the **"installer.bat"** file and it should start running, now you can minimise the chrome browser and the program and do some work while waiting for a notification. 
+3) Now run the **"installer.bat"** file and it should start running, now you can minimise the chrome browser and the program and do some work while waiting for a notification. 
 - Any problems open up a new issue on this github respitory!
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -34,15 +27,20 @@ going here: **chrome://settings/help** and it should upon up shwoing your curren
 Latest config.json file:
 ```json
 {
+  "minimum_amount": 500,
+  "headless": "False", 
   "windows_notification": "True",
   "webhook_enabled": "False",
   "webhook": "https://discord.com/api/webhooks/xxxxxxxx/xxxxxxxxxxxxxx"
 }
 ```
+### minimum_amount:
+Minimum rain amount intended for the program required to send you a notification. If you dont want this and want to be notified of all rains leave it at 500
+Example: If you set it to 1000 it will only notify you of rains that are bigger then or equal to 1000 R$
 
 ### headless:
 If set to "True" the chrome browser that the program opens will be hidden so you wont have to see it or accidentally open it.
-#### However: if the program shows an error it is recommended to set this value to False!
+#### However: if the program shows an error it is recommended to set this value to False
 
 ### windows_notification:
 If set to "True" then a popup on the bottom right on your screen will display showing you information about the current rain
