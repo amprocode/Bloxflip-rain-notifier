@@ -36,6 +36,7 @@ Latest config.json file:
 ```
 ### minimum_amount:
 Minimum rain amount intended for the program required to send you a notification. If you dont want this and want to be notified of all rains leave it at 500
+
 Example: If you set it to 1000 it will only notify you of rains that are bigger then or equal to 1000 R$
 
 ### headless:
