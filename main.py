@@ -16,9 +16,11 @@ webhook_enable = config['webhook_enabled']
 webhookurl = config['webhook']
 winnotif = config['windows_notification']
 minimum = config['minimum_amount']
+ping = config['webhook_ping']
+refresh = config['refresh_rate']
 
 if webhook_enable == "True":
-  webhook = DiscordWebhook(url=webhookurl, content='@everyone')
+  webhook = DiscordWebhook(url=webhookurl, content=f'<@{ping}>')
 
 if not os.path.exists("chromedriver.exe"):
   version = requests.get("https://chromedriver.storage.googleapis.com/LATEST_RELEASE").text
@@ -49,7 +51,8 @@ while True:
       check = json.loads(data)['rain']
       if check['active'] == True:
           if check['prize'] >= minimum:
-            prize = str(check['prize'])[:-2]
+            grabprize = str(check['prize'])[:-2]
+            prize = (format(int(grabprize),","))
             host = check['host']
             getduration = check['duration']
             convert = (getduration/(1000*60))%60
@@ -74,7 +77,7 @@ while True:
             toast.show_toast("Bloxflip Rain!", f"Rain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\n\n", icon_path="logo.ico", duration=10)
           time.sleep(130)
       elif check['active'] == False:
-        time.sleep(30)
+        time.sleep(refresh)
     except Exception as e:
       print(e)
-      time.sleep(30)
+      time.sleep(refresh)

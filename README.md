@@ -1,15 +1,18 @@
 # Bloxflip-rain-notifier
 
-## Update v1.2:
-- chromedriver.exe auto download
-- Minimum rain amount
+## Update v1.3:
+- Rain amount now includes commas for easier reading
+- You can now ping a role or user when sending to webhook
+- You can now change the refresh rate
 - Updated for exe as well :D
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Information:
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
-- Virustotal for exe: https://www.virustotal.com/gui/file/bf231f423778368ef8ce506cdbd73292f14959a77362739b2b58017452e221a5
+- This is ORIGINAL! It is not skidded, leaked, cracked, dumped e.t.c. (kinda sad i have to say this 😂)
+- If you want to use it check license so you know your limits
+- Virustotal for exe: https://www.virustotal.com/gui/file/ff98accfdb14c26e5dd7d8cb19107515cc2ec99049268cfbf8ecee916e278d3b
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -24,13 +27,15 @@
 
 ## Config guide:
 
-Latest config.json file:
+Default config.json file:
 ```json
 {
   "minimum_amount": 500,
+  "refresh_rate": 30,
   "headless": "False", 
   "windows_notification": "True",
   "webhook_enabled": "False",
+  "webhook_ping": 1234567890,
   "webhook": "https://discord.com/api/webhooks/xxxxxxxx/xxxxxxxxxxxxxx"
 }
 ```
@@ -38,6 +43,13 @@ Latest config.json file:
 Minimum rain amount intended for the program required to send you a notification. If you dont want this and want to be notified of all rains leave it at 500
 
 Example: If you set it to 1000 it will only notify you of rains that are bigger then or equal to 1000 R$
+
+### refresh_rate:
+How often you want it to check if there is a rain currently happening (in seconds)
+
+⚠️ WARNING ⚠️
+- Recommended to not go below 15 seconds because you dont want your potato PC to crash
+- Experiment with this feature, see what works for you
 
 ### headless:
 If set to "True" the chrome browser that the program opens will be hidden so you wont have to see it or accidentally open it.
@@ -53,14 +65,19 @@ Here is an example:
 ### webhook_enabled:
 Should be obvious but if you want the rain notifier to send a message to your discord webhook set it to "True"
 
+### webhook_ping:
+You can now ping a role or user instead of @everyone. If you need help getting an ID im sure this will help:
+
+https://youtu.be/KVLdpboY7bg
+
+If u want to still ping @everyone or @here just replace the numbers with "everyone" or "here"
+
 ### webhook:
 If you set webhook_enabled to "True" input your webhook into here to it can actually send it to you
 
 Example of webhook:
 
 ![image](https://user-images.githubusercontent.com/79641603/161392598-616dda5d-adb5-4ff4-9b60-d46ea8581128.png)
-
-Yes it does ping @everyone however you can change this in line 17
 
 ## Current Issues:
 - ~~Chromedriver headless mode currently does not work with this program~~
