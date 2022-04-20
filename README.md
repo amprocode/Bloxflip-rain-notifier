@@ -1,9 +1,7 @@
 # Bloxflip-rain-notifier
 
-## Update v1.3:
-- Rain amount now includes commas for easier reading
-- You can now ping a role or user when sending to webhook
-- You can now change the refresh rate
+## Update v1.3.1:
+- Added fix for wait time inbetween rains over 2 minutes
 - Updated for exe as well :D
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -12,7 +10,7 @@
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
 - This is ORIGINAL! It is not skidded, leaked, cracked, dumped e.t.c. (kinda sad i have to say this 😂)
 - If you want to use it check license so you know your limits
-- Virustotal for exe: https://www.virustotal.com/gui/file/ff98accfdb14c26e5dd7d8cb19107515cc2ec99049268cfbf8ecee916e278d3b
+- Virustotal for exe: https://www.virustotal.com/gui/file/95389829dc5bd925ca774e2cd0b437b52ab5bc51c26ab1ab43e229477341c4a2
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
