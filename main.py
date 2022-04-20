@@ -57,6 +57,7 @@ while True:
             getduration = check['duration']
             convert = (getduration/(1000*60))%60
             duration = (int(convert))
+            waiting = (convert*60+10)
             sent = time.strftime("%d/%m/%Y %H:%M:%S", time.localtime(int(time.time())))
             print(f"Bloxflip Rain!\nRain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\nTimestamp: {sent}\n\n")
             if webhook_enable == "True":
@@ -72,7 +73,7 @@ while True:
               webhook.execute()
               webhook.remove_embed(0)
           else:
-            time.sleep(130)
+            time.sleep(waiting)
           if winnotif == "True":
             toast.show_toast("Bloxflip Rain!", f"Rain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\n\n", icon_path="logo.ico", duration=10)
           time.sleep(130)
