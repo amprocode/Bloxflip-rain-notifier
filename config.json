@@ -4,6 +4,6 @@
   "headless": "False", 
   "windows_notification": "True",
   "webhook_enabled": "False",
-  "webhook_ping": 1234567890,
+  "webhook_ping": "<@1234567890987654>",
   "webhook": "https://discord.com/api/webhooks/xxxxxxxx/xxxxxxxxxxxxxx"
 }

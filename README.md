@@ -1,7 +1,8 @@
 # Bloxflip-rain-notifier
 
-## Update v1.3.1:
-- Added fix for wait time inbetween rains over 2 minutes
+## Update v1.3.2:
+- Fixed ping for rains 10k+ as mentioned in [issue 2](https://github.com/amprocode/Bloxflip-rain-notifier/issues/2)
+- Fixed issue with pinging everyone and added some more detail to how to set pings. Thanks for bringing this up in [issue 1](https://github.com/amprocode/Bloxflip-rain-notifier/issues/1)
 - Updated for exe as well :D
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -10,7 +11,7 @@
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
 - This is ORIGINAL! It is not skidded, leaked, cracked, dumped e.t.c. (kinda sad i have to say this 😂)
 - If you want to use it check license so you know your limits
-- Virustotal for exe: https://www.virustotal.com/gui/file/95389829dc5bd925ca774e2cd0b437b52ab5bc51c26ab1ab43e229477341c4a2
+- Virustotal for exe: https://www.virustotal.com/gui/file/17076e38e472404234dae7e6db135c0b310fa216cc5f7bc5eecd5f9fa812038c
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Default config.json file:
   "headless": "False", 
   "windows_notification": "True",
   "webhook_enabled": "False",
-  "webhook_ping": 1234567890,
+  "webhook_ping": "<@1234567890987654>",
   "webhook": "https://discord.com/api/webhooks/xxxxxxxx/xxxxxxxxxxxxxx"
 }
 ```
@@ -68,7 +69,22 @@ You can now ping a role or user instead of @everyone. If you need help getting a
 
 https://youtu.be/KVLdpboY7bg
 
-If u want to still ping @everyone or @here just replace the numbers with "everyone" or "here"
+Setting up ping:
+
+If you want to ping **@everyone** or **@here** make sure your webhook_ping setting looks something like this:
+```
+"webhook_ping": "@everyone",
+```
+If you want to ping a **user** make sure your webhook_ping setting looks something like this:
+```
+"webhook_ping": "<@747719812054253568>",
+```
+If you want to ping a **role** just put a **&** symbol infront of the numbers. It should look something like this:
+```
+"webhook_ping": "<@&690632567663575090>",
+```
+
+**Obviously these are examples, replace the numbers with your own**
 
 ### webhook:
 If you set webhook_enabled to "True" input your webhook into here to it can actually send it to you

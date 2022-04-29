@@ -20,7 +20,7 @@ ping = config['webhook_ping']
 refresh = config['refresh_rate']
 
 if webhook_enable == "True":
-  webhook = DiscordWebhook(url=webhookurl, content=f'<@{ping}>')
+  webhook = DiscordWebhook(url=webhookurl, content=f"{ping}")
 
 if not os.path.exists("chromedriver.exe"):
   version = requests.get("https://chromedriver.storage.googleapis.com/LATEST_RELEASE").text
@@ -73,10 +73,10 @@ while True:
               webhook.execute()
               webhook.remove_embed(0)
           else:
-            time.sleep(waiting)
+            time.sleep(130)
           if winnotif == "True":
             toast.show_toast("Bloxflip Rain!", f"Rain amount: {prize} R$\nExpiration: {duration} minutes\nHost: {host}\n\n", icon_path="logo.ico", duration=10)
-          time.sleep(130)
+          time.sleep(waiting)
       elif check['active'] == False:
         time.sleep(refresh)
     except Exception as e:
