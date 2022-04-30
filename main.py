@@ -1,4 +1,5 @@
 import json, os, time, requests
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from win10toast import ToastNotifier
 from zipfile import *
@@ -47,8 +48,8 @@ while True:
       driver.get('https://rest-bf.blox.land/chat/history')
       if headless == "False":
         driver.minimize_window()
-      data = driver.page_source.replace('<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">', "").replace("</pre></body></html>", "")
-      check = json.loads(data)['rain']
+      soup = BeautifulSoup(driver.page_source, 'lxml')
+      check = json.loads(soup.find("body").text)['rain']
       if check['active'] == True:
           if check['prize'] >= minimum:
             grabprize = str(check['prize'])[:-2]

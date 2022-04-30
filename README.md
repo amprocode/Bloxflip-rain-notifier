@@ -1,8 +1,7 @@
 # Bloxflip-rain-notifier
 
-## Update v1.3.2:
-- Fixed ping for rains 10k+ as mentioned in [issue 2](https://github.com/amprocode/Bloxflip-rain-notifier/issues/2)
-- Fixed issue with pinging everyone and added some more detail to how to set pings. Thanks for bringing this up in [issue 1](https://github.com/amprocode/Bloxflip-rain-notifier/issues/1)
+## Update v1.3.3:
+- Fixed error Expecting value: line 1 column 1 (char 0)
 - Updated for exe as well :D
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -11,7 +10,7 @@
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
 - This is ORIGINAL! It is not skidded, leaked, cracked, dumped e.t.c. (kinda sad i have to say this 😂)
 - If you want to use it check license so you know your limits
-- Virustotal for exe: https://www.virustotal.com/gui/file/17076e38e472404234dae7e6db135c0b310fa216cc5f7bc5eecd5f9fa812038c
+- Virustotal for exe: https://www.virustotal.com/gui/file/9d3f79bcc45fabef48d2bf286e8f990db6f281b69a980e85414128d299c98bfb
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
