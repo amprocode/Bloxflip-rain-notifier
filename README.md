@@ -1,8 +1,11 @@
 # Bloxflip-rain-notifier
 
-## Update v1.3.3:
-- Fixed error Expecting value: line 1 column 1 (char 0)
-- Updated for exe as well :D
+## Update v1.4:
+- No more chromedriver 🎉
+- Much faster
+- Run on heroku or replit.com 24/7!
+
+**If this update breaks, please revert back to v1.3.3 and open an issue**
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -30,7 +33,6 @@ Default config.json file:
 {
   "minimum_amount": 500,
   "refresh_rate": 30,
-  "headless": "False", 
   "windows_notification": "True",
   "webhook_enabled": "False",
   "webhook_ping": "<@1234567890987654>",
@@ -48,10 +50,6 @@ How often you want it to check if there is a rain currently happening (in second
 ⚠️ WARNING ⚠️
 - Recommended to not go below 15 seconds because you dont want your potato PC to crash
 - Experiment with this feature, see what works for you
-
-### headless:
-If set to "True" the chrome browser that the program opens will be hidden so you wont have to see it or accidentally open it.
-#### However: if the program shows an error it is recommended to set this value to False
 
 ### windows_notification:
 If set to "True" then a popup on the bottom right on your screen will display showing you information about the current rain
@@ -93,5 +91,4 @@ Example of webhook:
 ![image](https://user-images.githubusercontent.com/79641603/161392598-616dda5d-adb5-4ff4-9b60-d46ea8581128.png)
 
 ## Current Issues:
-- ~~Chromedriver headless mode currently does not work with this program~~
-- Currently cannot use requests due to bloxflip blocking requests
+- None

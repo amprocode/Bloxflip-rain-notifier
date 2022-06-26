@@ -1,6 +1,4 @@
 requests
-bs4
-lxml
-selenium
-win10toast
 discord_webhook
+cloudscraper
+win10toast

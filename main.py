@@ -1,10 +1,5 @@
-import json, os, time, requests
-from bs4 import BeautifulSoup
-from selenium import webdriver
+import json, os, time, requests, cloudscraper
 from win10toast import ToastNotifier
-from zipfile import *
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
 os.system(f'title Bloxflip Rain Notifier ^')
@@ -12,7 +7,6 @@ os.system(f'title Bloxflip Rain Notifier ^')
 with open("config.json", "r") as config:
   config = json.load(config)
 
-headless = config['headless']    
 webhook_enable = config['webhook_enabled']
 webhookurl = config['webhook']
 winnotif = config['windows_notification']
@@ -23,33 +17,13 @@ refresh = config['refresh_rate']
 if webhook_enable == "True":
   webhook = DiscordWebhook(url=webhookurl, content=f"{ping}")
 
-if not os.path.exists("chromedriver.exe"):
-  version = requests.get("https://chromedriver.storage.googleapis.com/LATEST_RELEASE").text
-  download = requests.get(f"https://chromedriver.storage.googleapis.com/{version}/chromedriver_win32.zip")
-  with open("chromedriver.zip", "wb") as zip:
-    zip.write(download.content)
-
-  with ZipFile("chromedriver.zip", "r") as zip:
-    zip.extract("chromedriver.exe")
-    zip.close()
-    os.remove("chromedriver.zip")
-
 toast = ToastNotifier()
-options = Options()
-if headless == "True":
-  options.headless = True
-options.add_argument("window-size=200,500")
-options.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome(service=Service('chromedriver.exe'), options=options)
-driver.implicitly_wait(10)
 
 while True:
     try:
-      driver.get('https://rest-bf.blox.land/chat/history')
-      if headless == "False":
-        driver.minimize_window()
-      soup = BeautifulSoup(driver.page_source, 'lxml')
-      check = json.loads(soup.find("body").text)['rain']
+      scraper = cloudscraper.create_scraper()
+      r = scraper.get('https://rest-bf.blox.land/chat/history').json()
+      check = r['rain']
       if check['active'] == True:
           if check['prize'] >= minimum:
             grabprize = str(check['prize'])[:-2]
