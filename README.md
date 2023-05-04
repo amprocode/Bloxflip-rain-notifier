@@ -1,19 +1,18 @@
 # Bloxflip-rain-notifier
 
-## Update v1.4:
-- No more chromedriver 🎉
-- Much faster
-- Run on heroku or replit.com 24/7!
+## Update v1.5:
+- Added discord timestamp thing
+- Fixed pfps not loading
+- Fixed config
 
-**If this update breaks, please revert back to v1.3.3 and open an issue**
-
+**OMG UPDATE WTH???**
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Information:
 - When there is a rain at [bloxflip](https://bloxflip.com) this program will notify you about the rain with some information about it
 - This is ORIGINAL! It is not skidded, leaked, cracked, dumped e.t.c. (kinda sad i have to say this 😂)
 - If you want to use it check license so you know your limits
-- Virustotal for exe: https://www.virustotal.com/gui/file/9d3f79bcc45fabef48d2bf286e8f990db6f281b69a980e85414128d299c98bfb
+- Virustotal for exe: https://www.virustotal.com/gui/file/77403c07c110905e7b967600e754366c50bc1449b4dbe0157bc1b98a7d582c08
 - If you dont trust it, its literally open source
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,8 +32,8 @@ Default config.json file:
 {
   "minimum_amount": 500,
   "refresh_rate": 30,
-  "windows_notification": "True",
-  "webhook_enabled": "False",
+  "windows_notification": true,
+  "webhook_enabled": false,
   "webhook_ping": "<@1234567890987654>",
   "webhook": "https://discord.com/api/webhooks/xxxxxxxx/xxxxxxxxxxxxxx"
 }
@@ -52,14 +51,14 @@ How often you want it to check if there is a rain currently happening (in second
 - Experiment with this feature, see what works for you
 
 ### windows_notification:
-If set to "True" then a popup on the bottom right on your screen will display showing you information about the current rain
+If set to "true" then a popup on the bottom right on your screen will display showing you information about the current rain
 
 Here is an example:
 
 ![unknown (2)](https://user-images.githubusercontent.com/79641603/161392482-74abad64-d724-466a-8c7a-2f6d87acf3c6.png)
 
 ### webhook_enabled:
-Should be obvious but if you want the rain notifier to send a message to your discord webhook set it to "True"
+Should be obvious but if you want the rain notifier to send a message to your discord webhook set it to "true"
 
 ### webhook_ping:
 You can now ping a role or user instead of @everyone. If you need help getting an ID im sure this will help:
@@ -88,7 +87,7 @@ If you set webhook_enabled to "True" input your webhook into here to it can actu
 
 Example of webhook:
 
-![image](https://user-images.githubusercontent.com/79641603/161392598-616dda5d-adb5-4ff4-9b60-d46ea8581128.png)
+![image](https://user-images.githubusercontent.com/79641603/236318484-31709ae8-0215-4c88-9e43-86d11a7f43aa.png)
 
 ## Current Issues:
 - None
