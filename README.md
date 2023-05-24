@@ -1,11 +1,7 @@
 # Bloxflip-rain-notifier
 
-## Update v1.5:
-- Added discord timestamp thing
-- Fixed pfps not loading
-- Fixed config
-
-**OMG UPDATE WTH???**
+## Update v1.5.1:
+- Updated API
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Information:
