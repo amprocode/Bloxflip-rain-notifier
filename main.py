@@ -22,7 +22,7 @@ toast = ToastNotifier()
 while True:
     try:
         scraper = cloudscraper.create_scraper()
-        r = scraper.get('https://rest-bf.blox.land/chat/history').json()
+        r = scraper.get('https://api.bloxflip.com/chat/history').json()
         check = r['rain']
         if check['active'] == True:
             if check['prize'] >= minimum:
