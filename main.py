@@ -1,12 +1,13 @@
+'''
+This script is intended for running this notifier 24/7 or for operating systems that are linux-based
+'''
 import cloudscraper
 import json
-import os
 import requests
 import time
 from discord_webhook import DiscordWebhook, DiscordEmbed
 from rich.console import Console
-from win10toast import ToastNotifier
-os.system(f'title Bloxflip Rain Notifier ^')
+
 console = Console()
 with open("config.json", "r") as config:
   config = json.load(config)
@@ -15,7 +16,6 @@ with open("config.json", "r") as config:
   required_keys: set[str] = {
   "minimum_amount",
   "refresh_rate",
-  "windows_notification",
   "webhook_enabled" ,
   "webhook_ping",
   "webhook"
@@ -30,7 +30,6 @@ with open("config.json", "r") as config:
 
 webhook_enable: bool = config['webhook_enabled']
 webhookurl: str = config['webhook']
-winnotif = config['windows_notification']
 minimum = config['minimum_amount']
 if minimum < 0:
     console.bell()
@@ -41,7 +40,7 @@ ping = str(config['webhook_ping'])
 if not ping.startswith('<@') and ping.isnumeric():
     ping = f'<@{ping}>'  # assuming ping is an integer in case as the user's ID
 refresh = config['refresh_rate']
-webhook: DiscordWebhook = None
+webhook: DiscordWebhook = None 
 if webhook_enable:  # verify if the webhook exists by sending a test message
   webhook = DiscordWebhook(url=webhookurl, content=f"{ping}")
   try:
@@ -65,7 +64,6 @@ if webhook_enable:  # verify if the webhook exists by sending a test message
       exit(-1)
 
 
-toast = ToastNotifier()
 console.print("Successfully started the rain notifier! Now go ahead, hide this tab", style='green')
 while True:
     try:
@@ -100,11 +98,6 @@ while True:
                     webhook.remove_embed(0)    
             else:
                 time.sleep(130)
-            if winnotif:
-              toast.show_toast(
-                  "Bloxflip Rain!", f"Rain amount: {prize} R$\nExpiration: {convert} minutes\nHost: {host}\n\n",
-                               icon_path="logo.ico",
-                               duration=10)
             time.sleep(waiting)
         elif not check['active']:
           time.sleep(refresh)

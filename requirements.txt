@@ -1,5 +1,4 @@
 requests
 discord_webhook
 cloudscraper
-win10toast
 rich
