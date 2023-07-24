@@ -1,4 +1,5 @@
 # Bloxflip-rain-notifier
+> this branch is when you want to run the notifier 24/7 by using a hosting or for linux-based distributions (but this works perfect too for windows)
 
 ## Update v1.5.1:
 - Updated API
